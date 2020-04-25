@@ -16,7 +16,7 @@ public class ChatServer {
 	
 	private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
 	
-	public static void main(String args[]) throws Exception{
+	public static void main(String[] args) throws Exception{
 		
 		System.out.println("Chat service is runnig");
 		
@@ -27,6 +27,7 @@ public class ChatServer {
 			while(true) {
 				Socket socket = listener.accept();
 				Thread handlerthread = new Thread(new Handler(socket));
+				handlerthread.start();
 			}
 			
 		} catch (Exception e) {
