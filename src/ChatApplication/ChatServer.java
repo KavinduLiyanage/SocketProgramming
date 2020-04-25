@@ -24,10 +24,14 @@ public class ChatServer {
 		
 		try {
 			
-			
+			while(true) {
+				Socket socket = listener.accept();
+				Thread handlerthread = new Thread(new Handler(socket));
+			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
+			listener.close();
 		}
 		
 	}
