@@ -30,7 +30,7 @@ public class ChatServer {
 				handlerthread.start();
 			}
 			
-		} catch (Exception e) {
+		} finally {
 			
 			listener.close();
 		}
@@ -58,7 +58,7 @@ public class ChatServer {
 				out = new PrintWriter(socket.getOutputStream(),true);
 				
 				while(true) {
-					out.println("SUBMINAME");
+					out.println("SUBMITNAME");
 					name = in.readLine();
 					
 					if(name == null) {
